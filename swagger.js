@@ -5,8 +5,8 @@ const doc = {
     title: 'FitTrack API',
     description: 'API for tracking workouts and exercises'
   },
-  host: 'https://fittrack-jmso.onrender.com/api-docs/',
-  schemes: ['http']
+  host: 'fittrack-jmso.onrender.com',
+  schemes: ['https']
 };
 
 const outputFile = './swagger.json';
