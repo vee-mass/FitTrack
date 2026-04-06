@@ -5,7 +5,7 @@
     "description": "API for tracking workouts and exercises",
     "version": "1.0.0"
   },
-  "host": "localhost:8080",
+  "host": "https://fittrack-jmso.onrender.com/api-docs/",
   "basePath": "/",
   "schemes": [
     "http"

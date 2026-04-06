@@ -5,7 +5,7 @@ const doc = {
     title: 'FitTrack API',
     description: 'API for tracking workouts and exercises'
   },
-  host: 'localhost:8080', // add render URL later
+  host: 'https://fittrack-jmso.onrender.com/api-docs/',
   schemes: ['http']
 };
 
