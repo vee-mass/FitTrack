@@ -1,7 +1,6 @@
 const mongodb = require('../db/connect');
 const ObjectId = require('mongodb').ObjectId;
 
-// GET ALL PROGRAMS
 const getAll = async (req, res) => {
   try {
     const result = await mongodb.getDb().db().collection('programs').find();
@@ -13,7 +12,6 @@ const getAll = async (req, res) => {
   }
 };
 
-// GET SINGLE PROGRAM
 const getSingle = async (req, res) => {
   try {
     const programId = new ObjectId(req.params.id);
@@ -30,7 +28,6 @@ const getSingle = async (req, res) => {
   }
 };
 
-// CREATE PROGRAM
 const createProgram = async (req, res) => {
   try {
     const program = {
@@ -38,7 +35,10 @@ const createProgram = async (req, res) => {
       description: req.body.description,
       duration: req.body.duration,
       level: req.body.level, 
-      focusArea: req.body.focusArea 
+      focusArea: req.body.focusArea,
+      trainerName: req.body.trainerName,
+      isPublic: req.body.isPublic,
+      tags: req.body.tags
     };
     const response = await mongodb.getDb().db().collection('programs').insertOne(program);
     if (response.acknowledged) {
@@ -51,7 +51,6 @@ const createProgram = async (req, res) => {
   }
 };
 
-// UPDATE PROGRAM
 const updateProgram = async (req, res) => {
   try {
     const programId = new ObjectId(req.params.id);
@@ -60,7 +59,10 @@ const updateProgram = async (req, res) => {
       description: req.body.description,
       duration: req.body.duration,
       level: req.body.level,
-      focusArea: req.body.focusArea
+      focusArea: req.body.focusArea,
+      trainerName: req.body.trainerName,
+      isPublic: req.body.isPublic,
+      tags: req.body.tags
     };
     const response = await mongodb.getDb().db().collection('programs').replaceOne({ _id: programId }, program);
     if (response.modifiedCount > 0) {
